@@ -5,6 +5,8 @@ const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
+const validateRegisterInput = require('../../validation/register');
+const validateLoginInput = require('../../validation/login');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
@@ -70,7 +72,7 @@ router.post("/login", (req, res) => {
   User.findOne({ handle }).then(user => {
     if (!user) {
       errors.handle = "This user does not exist";
-      return res.status(400).json(errors);
+      return res.status(404).json(errors);
     }
 
     bcrypt.compare(password, user.password).then(isMatch => {
