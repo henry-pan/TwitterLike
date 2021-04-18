@@ -1,11 +1,12 @@
 {
-  "name": "TwitterLike",
+  "name": "twitterlike",
   "version": "1.0.0",
   "description": "A Twitter clone built with the MERN stack.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "server": "nodemon app.js"
+    "server": "nodemon app.js",
+    "server:debug": "nodemon --inspect app.js"
   },
   "keywords": [],
   "author": "",
